@@ -3,9 +3,6 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 
 import { reactive, inject } from 'vue'
-import {
-  initializeApp
-} from 'firebase/app'
 
 import {
   getDatabase,
@@ -15,17 +12,7 @@ import {
   child,
 } from 'firebase/database'
 
-const firebaseConfig = {
-  apiKey: process.env.VITE_APP_APIKEY,
-  authDomain: process.env.VITE_APP_AUTHDOMAIN,
-  databaseURL: process.env.VITE_APP_DATABASE_URL,
-  projectId: process.env.VITE_APP_PROJECT_ID,
-  storageBucket: process.env.VITE_APP_STORAGEBUCKET,
-  messagingSenderId: process.env.VITE_APP_MESSAGINGSENDERID,
-  appId: process.env.VITE_APP_APPID
-}
-
-const app = initializeApp(firebaseConfig)
+const app = inject("fireApp")
 
 const db = getDatabase()
 
