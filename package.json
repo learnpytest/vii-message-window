@@ -1,7 +1,20 @@
 {
   "name": "vue-message-window",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "type":"module",
+  "private": false,
+  "exports": {
+    ".": "./dist/index.js",
+    "./styles.css": "./dist/style.css"
+  },
+  "browser": {
+    "./styles.css": "./dist/style.css"
+  },
+  "types": "./dist/placeholder.d.ts",
+  "license": "Apache-2.0",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -9,6 +22,7 @@
   },
   "dependencies": {
     "firebase": "^9.8.3",
+    "rollup-plugin-typescript2": "^0.32.1",
     "vue": "^3.2.25"
   },
   "devDependencies": {
