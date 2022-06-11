@@ -12,21 +12,22 @@ import {
   child,
 } from 'firebase/database'
 
-const app = inject("fireApp")
+// const db = getDatabase()
 
-const db = getDatabase()
+const app = inject("fireApp")
+const db = inject("fireDb")
+const staticTopic = inject("staticTopic")
 
 const store = reactive({
   customerReflection: {
     isFirstInquiryAnswered: false,
     isCustomerPositive: false,
-    topic: process.env.VITE_APP_THEME,
+    topic: "",
     customerInput: '',
     isFinishedInquiry: false,
   },
 })
 
-const staticTopic = inject("staticTopic")
 
 const topic = staticTopic || ""
 
@@ -65,6 +66,8 @@ const customerSendInput = () => {
   store.customerReflection.customerInput = ''
   store.customerReflection.isFinishedInquiry = true
 }
+
+
 </script>
 
 <template>

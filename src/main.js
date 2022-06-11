@@ -5,6 +5,9 @@ import MessageWindowPlugin from "./MessageWindowPlugin"
 import {
   initializeApp
 } from 'firebase/app'
+import {
+  getDatabase,
+} from 'firebase/database'
 
 const firebaseConfig = {
   apiKey: process.env.VITE_APP_APIKEY,
@@ -16,4 +19,4 @@ const firebaseConfig = {
   appId: process.env.VITE_APP_APPID
 }
 
-createApp(App).use(MessageWindowPlugin, { fireApp: initializeApp(firebaseConfig) }).mount('#app')
+createApp(App).use(MessageWindowPlugin, { fireApp: initializeApp(firebaseConfig), fireDb: getDatabase() }).mount('#app')
