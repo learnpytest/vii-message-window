@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import MessageWindowPlugin from "./MessageWindowPlugin"
 
-createApp(App).mount('#app')
+createApp(App).use(MessageWindowPlugin).mount('#app')

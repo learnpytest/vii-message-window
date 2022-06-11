@@ -1,5 +1,5 @@
 <script setup>
-  import MessageWindow from "./components/message-window.vue"
+  // import MessageWindow from "./components/message-window.vue"
 </script>
 
 <template>

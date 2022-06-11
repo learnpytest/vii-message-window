@@ -2,7 +2,7 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 
-import { reactive, ref, onMounted } from 'vue'
+import { reactive, inject } from 'vue'
 import '../config/database'
 import {
   getDatabase,
@@ -19,11 +19,15 @@ const store = reactive({
   customerReflection: {
     isFirstInquiryAnswered: false,
     isCustomerPositive: false,
-    hostTopic: process.env.VITE_APP_THEME,
+    topic: process.env.VITE_APP_THEME,
     customerInput: '',
     isFinishedInquiry: false,
   },
 })
+
+const staticTopic = inject("staticTopic")
+
+const topic = staticTopic || ""
 
 const setFirstInquiryPositive = () => {
   store.customerReflection.isFirstInquiryAnswered = true
@@ -45,7 +49,7 @@ const customerSendInput = () => {
 
   async function postCustomerInputToFirebase() {
     const payload = {
-      hostTopic: store.customerReflection.hostTopic,
+      topic: store.customerReflection.topic,
       whatCustomerLookForInput: store.customerReflection.customerInput,
     }
     // get key for new message
@@ -87,10 +91,10 @@ const customerSendInput = () => {
       >
         <form class="form" @submit.stop.prevent="customerSendInput">
           <label for="viewMessage" class="label">
-            <span v-if="store.customerReflection.hostTopic">
+            <span v-if="store.customerReflection.topic">
               What kind of information are you interested in
               <span class="text-accent-light">
-                {{ store.customerReflection.hostTopic }}
+                {{ store.customerReflection.topic }}
               </span>
               ?
             </span>
