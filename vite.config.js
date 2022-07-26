@@ -2,16 +2,6 @@ import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { fileURLToPath, URL } from 'url'
 import typescript2 from "rollup-plugin-typescript2";
-// https://vitejs.dev/config/
-// export default ({ mode }) => {
-//   const env = loadEnv(mode, process.cwd())
-//   return defineConfig({
-//     define: {
-//       'process.env': { ...env }
-//     },
-//     plugins: [vue()]
-//   })
-// }
 
 export default ({ mode }) => {
   const env = loadEnv(mode, process.cwd())
