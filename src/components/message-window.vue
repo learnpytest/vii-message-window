@@ -29,7 +29,7 @@ const store = reactive({
 })
 
 
-const topic = staticTopic || ""
+store.customerReflection.topic = staticTopic || ""
 
 const setFirstInquiryPositive = () => {
   store.customerReflection.isFirstInquiryAnswered = true
@@ -102,7 +102,7 @@ const customerSendInput = () => {
               </span>
               ?
             </span>
-            <span v-else>`What are you looking for?`</span>
+            <span v-else>What are you looking for?</span>
           </label>
           <input
             type="text"

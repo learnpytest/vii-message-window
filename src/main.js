@@ -19,4 +19,4 @@ const firebaseConfig = {
   appId: process.env.VITE_APP_APPID
 }
 
-createApp(App).use(MessageWindowPlugin, { fireApp: initializeApp(firebaseConfig), fireDb: getDatabase() }).mount('#app')
+createApp(App).use(MessageWindowPlugin, { staticTopic: "Vue", fireApp: initializeApp(firebaseConfig), fireDb: getDatabase() }).mount('#app')
